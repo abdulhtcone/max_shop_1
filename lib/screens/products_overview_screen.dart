@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:max_shop_1/providers/cart.dart';
+import 'package:max_shop_1/screens/cat_screen.dart';
+import 'package:max_shop_1/widgets/app_drawer.dart';
 import 'package:max_shop_1/widgets/badge.dart';
 
 import 'package:max_shop_1/widgets/product_grid.dart';
@@ -52,12 +54,15 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
               value: cart.itemCount.toString(),
             ),
             child: IconButton(
-              icon: Icon(Icons.shop),
-              onPressed: () {},
+              icon: Icon(Icons.shopping_cart),
+              onPressed: () {
+                Navigator.of(context).pushNamed(CartScreen.routeName);
+              },
             ),
           )
         ],
       ),
+      drawer: AppDrawer(),
       body: ProductGrid(_showFavoritesOnly),
     );
   }
